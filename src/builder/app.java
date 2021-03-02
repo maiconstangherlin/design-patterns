@@ -6,7 +6,7 @@ public class app {
 
     public static void main(String[] args) {
 
-        Pearson pearson = new Pearson.Builder()
+        Pearson pearson = Pearson.builder()
                 .name("Maicon")
                 .birthDate(LocalDate.of(1993,6,15))
                 .addNameParents("Father", "Mother", "Sister")

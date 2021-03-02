@@ -10,31 +10,35 @@ public class Pearson {
     private List<String> nameParents;
     private Map<String, String> documents;
 
-    public Pearson(Builder builder) {
+    public Pearson(PearsonBuilder builder) {
         this.name = builder.name;
         this.birthDate = builder.birthDate;
         this.nameParents = builder.nameParents;
         this.documents = builder.documents;
     }
 
-    public static class Builder {
+    public static PearsonBuilder builder() {
+        return new PearsonBuilder();
+    }
+
+    public static class PearsonBuilder {
 
         private String name;
         private LocalDate birthDate;
         private List<String> nameParents;
         private Map<String, String> documents;
 
-        public Builder name(String name) {
+        public PearsonBuilder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder birthDate(LocalDate birthDate) {
+        public PearsonBuilder birthDate(LocalDate birthDate) {
             this.birthDate = birthDate;
             return this;
         }
 
-        public Builder addNameParents(String... parents) {
+        public PearsonBuilder addNameParents(String... parents) {
             if (nameParents == null) {
                 this.nameParents = new ArrayList<>();
             }
@@ -42,7 +46,7 @@ public class Pearson {
             return this;
         }
 
-        public Builder addDocument(String documentName, String documentValue) {
+        public PearsonBuilder addDocument(String documentName, String documentValue) {
             if (documents == null) {
                 documents = new HashMap<>();
             }
