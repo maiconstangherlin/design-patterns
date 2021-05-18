@@ -12,10 +12,10 @@ public class NotaFiscalService {
 
     void emitir(NotaFiscal notaFiscal) {
         System.out.printf("\n Nota fiscal %s emitida!", notaFiscal.getNumero());
-
-        for (NotaFiscalEmitidaListener listener : notaFiscalEmitidaListeners) {
-            listener.update(notaFiscal);
-        }
+        notificaOuvintes(notaFiscal);
     }
 
+    void notificaOuvintes(NotaFiscal notaFiscal) {
+        notaFiscalEmitidaListeners.forEach(listener -> listener.update(notaFiscal));
+    }
 }
